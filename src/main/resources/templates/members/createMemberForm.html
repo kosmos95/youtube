@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>hello</title>
+  <link th:href="@{/css/stylesheet.css}" rel="stylesheet">
+  <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/css/select2.min.css}" rel="stylesheet" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<section>
+  <form role="form" action="/" th:object="${memberForm}" method="post" class="form">
+      <div class="form-person">
+    <div class="form-group">
+      <label>이름</label>
+      <input type="text" th:field="*{name}" autocomplete="off" class="form-control branch"
+             th:class="${#fields.hasErrors('name')}? 'form-control fieldError' : 'form-control'">
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect date</p>
+    </div>
+
+    <div class="form-group">
+      <label>도장을 선택하세요</label>
+      <select name="officeId" id="officeId" class="form-control">
+        <option name="">도장선택</option>
+        <option th:each="office : ${offices}"
+                th:value="${office.id}"
+                th:text="${office.office}"></option>
+      </select>
+    </div>
+      </div>
+      <div class="form-link">
+    <div class="form-group">
+      <label>링크</label>
+      <input type="text" th:field="*{channelId}" autocomplete="off" class="form-control branch"
+             th:class="${#fields.hasErrors('channelId')}? 'form-control fieldError' : 'form-control'">
+      <p th:if="${#fields.hasErrors('channelId')}" th:errors="*{channelId}">Incorrect date</p>
+    </div>
+      </div>
+      <div class="form-leader">
+    <div>팀장여부</div>
+    <div>
+      <div class="form-check">
+        <input type="checkbox" id="leader" th:field="*{leader}" class="form-check-input">
+        <label for="leader" class="form-check">팀장</label>
+      </div>
+    </div>
+      </div>
+    <button type="submit" class="btn">제출하기</button>
+  </form>
+</section>
+
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.9/js/select2.min.js}"></script>
+<script>
+  $(document).ready(function() {
+    $("#officeId").select2();
+  });
+</script>
+
+</body>
+</html>
