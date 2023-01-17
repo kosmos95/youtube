@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,9 @@ import youtubeMember.youtube.service.MemberService;
 import youtubeMember.youtube.service.OfficeService;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -41,8 +44,13 @@ public class MemberController {
     }
 
     @PostMapping(value = "/")
-    public String create(@Valid MemberForm form, BindingResult result, @RequestParam("officeId") Long officeId) {
+    public String create(@Valid MemberForm form, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
+
+        List<Office> offices = officeService.findOffices();
+        
         if (result.hasErrors()) {
+            //에러가 발생하면 도장 목록을 다시 읽어온다.
+            model.addAttribute("offices", offices);
             return "members/createMemberForm";
         }
 
@@ -53,6 +61,10 @@ public class MemberController {
         member.setChannelId(form.getChannelId());
         member.setLeader(form.getLeader());
         member.setOffice(office);
+
+
+
+
 
         memberService.join(member);
 
