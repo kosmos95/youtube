@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import youtubeMember.youtube.doamin.Member;
 import youtubeMember.youtube.doamin.Office;
 import youtubeMember.youtube.form.MemberForm;
+import youtubeMember.youtube.form.OfficeForm;
 import youtubeMember.youtube.repository.OfficeRepository;
 import youtubeMember.youtube.service.MemberService;
 import youtubeMember.youtube.service.OfficeService;
@@ -44,7 +45,7 @@ public class MemberController {
     }
 
     @PostMapping(value = "/")
-    public String create(@Valid MemberForm form, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
+    public String create(@Valid MemberForm form, OfficeForm officeForm,BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
 
         List<Office> offices = officeService.findOffices();
         
@@ -54,16 +55,14 @@ public class MemberController {
             return "members/createMemberForm";
         }
 
-        Office office = officeService.findOffice(officeId);
+        officeForm.setId(officeId);
+        Office office = officeService.findOffice(officeForm.getId());
 
         Member member = new Member(office, form.getName(), form.getChannelId(), form.getLeader());
         member.setName(form.getName());
         member.setChannelId(form.getChannelId());
         member.setLeader(form.getLeader());
         member.setOffice(office);
-
-
-
 
 
         memberService.join(member);
