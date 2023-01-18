@@ -28,16 +28,13 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final OfficeRepository officeRepository;
     private final MemberService memberService;
-
     private final OfficeService officeService;
 
     @GetMapping(value = "/")
     public String creteForm(Model model) {
 
         List<Office> offices = officeService.findOffices();
-
         model.addAttribute("memberForm", new MemberForm());
         model.addAttribute("offices", offices);
 
@@ -45,7 +42,7 @@ public class MemberController {
     }
 
     @PostMapping(value = "/")
-    public String create(@Valid MemberForm form, OfficeForm officeForm,BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
+    public String create(@Valid MemberForm form,OfficeForm officeForm, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
 
         List<Office> offices = officeService.findOffices();
         
