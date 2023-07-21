@@ -1,18 +1,25 @@
 server:
   port: 9090
 
+#spring:
+#  datasource:
+#    url: jdbc:oracle:thin:@my.sindok.store:1521:xe
+#    username: youtube
+#    password: Gusdneorjs0808
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+
 spring:
   datasource:
-    url: jdbc:oracle:thin:@my.realwld.shop:1521:xe
+    url: jdbc:oracle:thin:@192.168.219.103:1521:xe
     username: youtube
-    password: gusdneorjs0808
+    password: 2135
     driver-class-name: oracle.jdbc.driver.OracleDriver
 
 
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
       # create일 경우 다시 테이블 생성한다 디폴트는 none
       properties:
       hibernate:

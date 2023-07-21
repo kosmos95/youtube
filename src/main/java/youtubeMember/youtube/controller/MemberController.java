@@ -31,7 +31,7 @@ public class MemberController {
     private final MemberService memberService;
     private final OfficeService officeService;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/member")
     public String creteForm(Model model) {
 
         List<Office> offices = officeService.findOffices();
@@ -41,7 +41,7 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/member")
     public String create(@Valid MemberForm form,OfficeForm officeForm, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
 
         List<Office> offices = officeService.findOffices();

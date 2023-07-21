@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 import static javax.persistence.FetchType.*;
 
-@Table(schema = "youtube", name = "MEMBER")
+@Table(schema = "youtube", name = "MEMBER_TESET")
 @Entity
 @SequenceGenerator(
         name = "MEMBER_SEQ_GENERATOR",
@@ -18,7 +18,7 @@ import static javax.persistence.FetchType.*;
         allocationSize = 1
 )
 @Getter@Setter
-public class Member {
+public class  Member {
 
 
     @Id

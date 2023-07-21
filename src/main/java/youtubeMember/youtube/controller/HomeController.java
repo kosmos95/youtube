@@ -13,10 +13,10 @@ public class HomeController {
 
     //Logger log = LoggerFactory.getLogger(getClass()); ->로그찍어서 보는 코드
 
-//    @GetMapping("/")
-//    public String home() {
-//        log.info("home controller");
-//        return "home";
-//    }
+    @GetMapping("/")
+    public String home() {
+        log.info("home controller");
+        return "home";
+    }
 
 }
