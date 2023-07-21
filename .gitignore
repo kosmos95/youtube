@@ -39,4 +39,3 @@ out/
 # .gitignore 파일 내용
 *.yml
 application.properties
-home.html
