@@ -3,8 +3,7 @@ package youtubeMember.youtube.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import youtubeMember.youtube.doamin.Office;
-import youtubeMember.youtube.form.MemberForm;
+import youtubeMember.youtube.model.Office;
 import youtubeMember.youtube.repository.OfficeRepository;
 
 import java.util.List;

@@ -2,7 +2,6 @@ package youtubeMember.youtube.form;
 
 import lombok.Getter;
 import lombok.Setter;
-import youtubeMember.youtube.doamin.Office;
 
 import javax.validation.constraints.NotEmpty;
 

@@ -2,26 +2,21 @@ package youtubeMember.youtube.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import youtubeMember.youtube.doamin.Member;
-import youtubeMember.youtube.doamin.Office;
+import youtubeMember.youtube.model.Member;
+import youtubeMember.youtube.model.Office;
 import youtubeMember.youtube.form.MemberForm;
 import youtubeMember.youtube.form.OfficeForm;
-import youtubeMember.youtube.repository.OfficeRepository;
 import youtubeMember.youtube.service.MemberService;
 import youtubeMember.youtube.service.OfficeService;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Controller

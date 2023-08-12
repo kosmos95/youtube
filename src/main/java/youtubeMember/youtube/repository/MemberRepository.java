@@ -1,13 +1,11 @@
 package youtubeMember.youtube.repository;
 
 import org.springframework.stereotype.Repository;
-import youtubeMember.youtube.doamin.Member;
-import youtubeMember.youtube.doamin.Office;
+import youtubeMember.youtube.model.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Spliterator;
 
 @Repository
 public class MemberRepository {

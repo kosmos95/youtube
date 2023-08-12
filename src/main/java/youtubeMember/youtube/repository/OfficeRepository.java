@@ -2,7 +2,7 @@ package youtubeMember.youtube.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import youtubeMember.youtube.doamin.Office;
+import youtubeMember.youtube.model.Office;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

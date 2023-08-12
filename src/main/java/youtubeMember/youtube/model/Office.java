@@ -1,4 +1,4 @@
-package youtubeMember.youtube.doamin;
+package youtubeMember.youtube.model;
 
 import lombok.Getter;
 import lombok.Setter;

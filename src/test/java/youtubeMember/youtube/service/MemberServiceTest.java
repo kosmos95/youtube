@@ -7,8 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import youtubeMember.youtube.doamin.Member;
-import youtubeMember.youtube.doamin.Office;
+import youtubeMember.youtube.model.Member;
 import youtubeMember.youtube.repository.MemberRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
