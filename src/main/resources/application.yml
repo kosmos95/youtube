@@ -1,5 +1,27 @@
 server:
-  port: 8088
+  port: 9090
 
 spring:
+ datasource:
+   driver-class-name: oracle.jdbc.OracleDriver
+   url: jdbc:oracle:thin:@192.168.219.103:1521:xe
+   username: youtube
+   password: 2135
 
+ jpa:
+   hibernate:
+     ddl-auto: create
+
+   properties:
+     hibernate:
+       format_sql: true
+       show_sql: true
+
+
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type:
+#          descriptor:
+#            sql=true
