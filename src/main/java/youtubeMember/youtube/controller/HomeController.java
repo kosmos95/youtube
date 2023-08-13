@@ -16,7 +16,7 @@ public class HomeController {
     @GetMapping("/")
     public String home() {
         log.info("home controller");
-        return "home";
+        return "members/login";
     }
 
 }
