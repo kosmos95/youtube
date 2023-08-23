@@ -2,6 +2,8 @@ package youtubeMember.youtube.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import youtubeMember.youtube.form.MemberForm;
 
 import javax.management.relation.Role;
 import javax.persistence.*;
@@ -56,5 +58,6 @@ public class  Member {
         this.channelId = channelId;
         this.leader = leader;
     }
+    
 
 }
