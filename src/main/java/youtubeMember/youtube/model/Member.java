@@ -3,9 +3,9 @@ package youtubeMember.youtube.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import youtubeMember.youtube.constant.Role;
 import youtubeMember.youtube.form.MemberForm;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.*;
@@ -58,6 +58,15 @@ public class  Member {
         this.channelId = channelId;
         this.leader = leader;
     }
-    
+
+    public static Member createMember(MemberForm memberForm, PasswordEncoder passwordEncoder) {
+        Member member = new Member();
+        member.setName(memberForm.getName());
+        String password = passwordEncoder.encode(member.getPassword());
+        member.setPassword(password);
+        member.setRole(Role.USER);
+
+        return member;
+    }
 
 }
