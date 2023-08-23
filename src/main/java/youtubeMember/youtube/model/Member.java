@@ -36,8 +36,8 @@ public class  Member {
     @JoinColumn(name = "office_Id")
     private Office office;
 
-    @Column(name = "member_name")
-    private String name;
+    @Column(name = "nick_name")
+    private String NickName;
 
     @Column(name = "authorChannel_id")
     private String channelId;
@@ -52,16 +52,16 @@ public class  Member {
     public Member() {
     }
 
-        public Member(Office office, String name, String channelId, Boolean leader) {
+        public Member(Office office, String NickName, String channelId, Boolean leader) {
         this.office = office;
-        this.name = name;
+        this.NickName = NickName;
         this.channelId = channelId;
         this.leader = leader;
     }
 
     public static Member createMember(MemberForm memberForm, PasswordEncoder passwordEncoder) {
         Member member = new Member();
-        member.setName(memberForm.getName());
+        member.setNickName(memberForm.getName());
         String password = passwordEncoder.encode(member.getPassword());
         member.setPassword(password);
         member.setRole(Role.USER);

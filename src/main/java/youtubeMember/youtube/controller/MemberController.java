@@ -52,7 +52,7 @@ public class MemberController {
         Office office = officeService.findOffice(officeForm.getId());
 
         Member member = new Member(office, form.getName(), form.getChannelId(), form.getLeader());
-        member.setName(form.getName());
+        member.setNickName(form.getName());
         member.setChannelId(form.getChannelId());
         member.setLeader(form.getLeader());
         member.setOffice(office);
