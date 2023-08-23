@@ -3,6 +3,7 @@ package youtubeMember.youtube.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.*;
@@ -23,6 +24,11 @@ public class  Member {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
                     generator = "MEMBER_SEQ_GENERATOR")
     private Long id;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "office_Id")

@@ -33,6 +33,7 @@ public class MemberController {
         model.addAttribute("memberForm", new MemberForm());
         model.addAttribute("offices", offices);
 
+        log.info("member controller");
         return "members/createMemberForm";
     }
 
