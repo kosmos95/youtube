@@ -8,10 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import youtubeMember.youtube.dto.ChannelFormDto;
+import youtubeMember.youtube.dto.OfficeFormDto;
 import youtubeMember.youtube.model.Member;
 import youtubeMember.youtube.model.Office;
-import youtubeMember.youtube.form.MemberForm;
-import youtubeMember.youtube.form.OfficeForm;
 import youtubeMember.youtube.service.MemberService;
 import youtubeMember.youtube.service.OfficeService;
 
@@ -30,7 +30,7 @@ public class MemberController {
     public String creteForm(Model model) {
 
         List<Office> offices = officeService.findOffices();
-        model.addAttribute("memberForm", new MemberForm());
+        model.addAttribute("memberForm", new ChannelFormDto());
         model.addAttribute("offices", offices);
 
         log.info("member controller");
@@ -38,7 +38,7 @@ public class MemberController {
     }
 
     @PostMapping(value = "/member")
-    public String create(@Valid MemberForm form,OfficeForm officeForm, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
+    public String create(@Valid ChannelFormDto form, OfficeFormDto officeForm, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
 
         List<Office> offices = officeService.findOffices();
         

@@ -1,4 +1,4 @@
-package youtubeMember.youtube.form;
+package youtubeMember.youtube.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Getter@Setter
-public class OfficeForm {
+public class OfficeFormDto {
 
     @NotNull(message = "도장을 선택해주세요")
     @Range(min = 1, max = 1000)

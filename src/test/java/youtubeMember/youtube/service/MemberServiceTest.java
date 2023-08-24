@@ -1,12 +1,15 @@
 package youtubeMember.youtube.service;
 
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import youtubeMember.youtube.dto.MemberFormDto;
 import youtubeMember.youtube.model.Member;
 import youtubeMember.youtube.repository.MemberRepository2;
 
@@ -21,6 +24,11 @@ public class MemberServiceTest {
     MemberService memberService;
     @Autowired
     MemberRepository2 memberRepository2;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+
 
     @Test
     @Rollback
@@ -62,5 +70,21 @@ public class MemberServiceTest {
         //then
         fail("예외가 발생해야 한다.");
 
+    }
+
+    public Member createMember() {
+        MemberFormDto memberFormDto = new MemberFormDto();
+        memberFormDto.setName("홍길동");
+        memberFormDto.setPassword("1234");
+        return Member.createMember(memberFormDto, passwordEncoder);
+    }
+
+    @Test
+    @DisplayName("회원가입 테스트")
+    public void saveMemberTest() {
+        Member member = createMember();
+        Member savedMember = memberService.saveMember(member);
+
+        assertEquals(member.getNickName(), savedMember.getNickName());
     }
 }

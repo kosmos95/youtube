@@ -1,4 +1,4 @@
-package youtubeMember.youtube.form;
+package youtubeMember.youtube.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 
 
 @Getter@Setter
-public class MemberForm {
+public class ChannelFormDto {
 
 
     @NotEmpty(message = "이름은 필수 입력입니다")

@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import youtubeMember.youtube.service.MemberService;
 
 @Configuration
 @EnableWebSecurity
@@ -31,18 +32,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
 
 
-        http.authorizeRequests()
-                .antMatchers("/member").authenticated()
-                // 다른 경로에 대한 권한 설정
-                .and()
-                .formLogin()
-                .loginPage("/members/login")
-                .defaultSuccessUrl("/member")
-                .failureUrl("/members/login/error")
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-                .logoutSuccessUrl("/");
+//        http.authorizeRequests()
+//                .antMatchers("/member").authenticated()
+//                // 다른 경로에 대한 권한 설정
+//                .and()
+//                .formLogin()
+//                .loginPage("/members/login")
+//                .defaultSuccessUrl("/member")
+//                .failureUrl("/members/login/error")
+//                .and()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
+//                .logoutSuccessUrl("/");
 
         http.authorizeHttpRequests()
                 .mvcMatchers("/", "/members/**",
@@ -60,10 +61,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .withUser(User.withDefaultPasswordEncoder().username("user").password("password").roles("USER"));
 //    }
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
@@ -71,9 +72,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .passwordEncoder(passwordEncoder());
 //    }
 
-    @Override
-    public void configure(WebSecurity webSecurity) throws Exception{
-        webSecurity.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
-    }
+//    @Override
+//    public void configure(WebSecurity webSecurity) throws Exception{
+//        webSecurity.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+//    }
 
 }

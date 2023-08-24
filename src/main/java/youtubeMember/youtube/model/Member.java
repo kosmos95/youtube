@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import youtubeMember.youtube.constant.Role;
-import youtubeMember.youtube.form.MemberForm;
+import youtubeMember.youtube.dto.MemberFormDto;
+
 
 import javax.persistence.*;
 
@@ -37,7 +38,7 @@ public class  Member {
     private Office office;
 
     @Column(name = "nick_name")
-    private String NickName;
+    private String nickName;
 
     @Column(name = "authorChannel_id")
     private String channelId;
@@ -52,17 +53,17 @@ public class  Member {
     public Member() {
     }
 
-        public Member(Office office, String NickName, String channelId, Boolean leader) {
+        public Member(Office office, String nickName, String channelId, Boolean leader) {
         this.office = office;
-        this.NickName = NickName;
+        this.nickName = nickName;
         this.channelId = channelId;
         this.leader = leader;
     }
 
-    public static Member createMember(MemberForm memberForm, PasswordEncoder passwordEncoder) {
+    public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         Member member = new Member();
-        member.setNickName(memberForm.getName());
-        String password = passwordEncoder.encode(member.getPassword());
+        member.setNickName(memberFormDto.getName());
+        String password = passwordEncoder.encode(memberFormDto.getPassword());
         member.setPassword(password);
         member.setRole(Role.USER);
 
