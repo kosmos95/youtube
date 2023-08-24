@@ -8,7 +8,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import youtubeMember.youtube.model.Member;
-import youtubeMember.youtube.repository.MemberRepository;
+import youtubeMember.youtube.repository.MemberRepository2;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,7 +20,7 @@ public class MemberServiceTest {
     @Autowired
     MemberService memberService;
     @Autowired
-    MemberRepository memberRepository;
+    MemberRepository2 memberRepository2;
 
     @Test
     @Rollback
@@ -34,7 +34,7 @@ public class MemberServiceTest {
         Long savedId = memberService.join(member);
 
         //then
-        assertEquals(member, memberRepository.findOne(savedId));
+        assertEquals(member, memberRepository2.findOne(savedId));
 
     }
 
