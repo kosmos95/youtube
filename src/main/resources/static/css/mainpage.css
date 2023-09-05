@@ -1,3 +1,5 @@
+
+
 .form {
     width: 100%;
     padding-top: 200px;
@@ -23,11 +25,25 @@
 /*login*/
 
 ._main {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
 
-.login_form {
+.background-image {
+    position: fixed;  /* Fixed position */
+    top: 0;  /* Align to the top */
+    left: 0;  /* Align to the left */
+    width: 100vw;  /* Full width */
+    height: 100vh;  /* Full height */
+    z-index: -1;  /* Place it behind the content */
+
+    background-image: url('/images/main.png');  /* 이미지 URL */
+    background-size: cover;  /* Cover the entire element */
+    background-position: center center;  /* Center the image */
+    overflow: hidden;
+}
+
+ .login_form {
     height: 100%;
     display: flex;
     justify-content: center;

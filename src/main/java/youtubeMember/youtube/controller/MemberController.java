@@ -42,7 +42,7 @@ public class MemberController {
         memberService.saveMember(member);
         log.info("회원가입 완료");
 
-        return "members/main";
+        return "main";
     }
 
     @GetMapping(value = "/channel")
