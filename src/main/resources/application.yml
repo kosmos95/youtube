@@ -10,7 +10,7 @@ spring:
 
  jpa:
    hibernate:
-     ddl-auto: create
+     ddl-auto: none
 
    properties:
      hibernate:
@@ -21,6 +21,12 @@ spring:
    user:
      name: admin
      password: 1234
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
 
 
 #logging:

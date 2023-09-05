@@ -19,4 +19,10 @@ public class HomeController {
         return "members/login";
     }
 
+    @GetMapping("/main")
+    public String mainPage() {
+        log.info("home controller");
+        return "members/main";
+    }
+
 }
