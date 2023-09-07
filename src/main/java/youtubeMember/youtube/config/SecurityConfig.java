@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/members/login")
                 .defaultSuccessUrl("/main")
                 .usernameParameter("name")
-                .failureUrl("/members/login/error")
+                .failureUrl("/members/login")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))

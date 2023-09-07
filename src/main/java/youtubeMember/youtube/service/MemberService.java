@@ -52,8 +52,7 @@ public class MemberService implements UserDetailsService {
     }
 
     /**
-     * 처음에는 모르고 controller 단에  getFileNameFromURL함수를 넣었다.
-     * 하지만 객체지향의 특징을 생각하면 서비스 단에서 처리해야 하는게 맞다.
+     * 유튜브 채널 이름 추출
      */
     private String getFileNameFromURL(String channelId) {
        return channelId.substring(channelId.lastIndexOf('/') + 1, channelId.length());

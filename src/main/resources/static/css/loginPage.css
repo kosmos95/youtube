@@ -1,0 +1,94 @@
+
+
+.form {
+    width: 100%;
+    padding-top: 200px;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.form-group{
+    width: 100%;
+    padding-right: 30px;
+}
+
+.form-person {
+    display: flex;
+}
+
+.form-leader{
+    display: flex;
+    /*justify-content: center;*/
+}
+
+/*login*/
+
+._main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.background-image {
+    position: fixed;  /* Fixed position */
+    top: 0;  /* Align to the top */
+    left: 0;  /* Align to the left */
+    width: 100vw;  /* Full width */
+    height: 100vh;  /* Full height */
+    z-index: -2;  /* Place it behind the content */
+
+    background-image: url('/images/main.png');  /* 이미지 URL */
+    background-size: cover;  /* Cover the entire element */
+    background-position: center center;  /* Center the image */
+    overflow: hidden;
+}
+
+.background-color{
+    position: fixed;  /* Fixed position */
+    top: 0;  /* Align to the top */
+    left: 0;  /* Align to the left */
+    width: 100vw;  /* Full width */
+    height: 100vh;  /* Full height */
+    z-index: -1;  /* Place it behind the content */
+
+    background-size: cover;  /* Cover the entire element */
+    background-position: center center;  /* Center the image */
+    background: black;
+    opacity: 0.2;
+}
+
+ .login_form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ #login_form{
+     background-color: aliceblue;
+     padding: 100px 100px 150px 100px;
+     border-radius: 5px;
+ }
+ .form-group{
+     margin-bottom: 10px;
+ }
+
+ .form-control{
+     width: 100%;
+     padding: 15px 100px 15px 10px;
+     font-size: 16px;
+ }
+
+.form-control::placeholder{
+    font-size: 16px;
+}
+
+.btn{
+    width: 100%;
+    padding: 15px 150px 15px 150px;
+    background-color: #428bca;
+    border:none;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}

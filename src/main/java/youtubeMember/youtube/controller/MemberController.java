@@ -45,6 +45,13 @@ public class MemberController {
         return "main";
     }
 
+    @GetMapping(value = "/members/login")
+    public String login(Model model) {
+        model.addAttribute("memberFormDto", new MemberFormDto());
+
+        return "members/login";
+    }
+
     @GetMapping(value = "/channel")
     public String creteForm(Model model) {
 
