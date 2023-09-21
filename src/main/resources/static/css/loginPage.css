@@ -69,21 +69,21 @@
      padding: 100px 100px 150px 100px;
      border-radius: 5px;
  }
- .form-group{
+ .login-form-group{
      margin-bottom: 10px;
  }
 
- .form-control{
+.login-form-control{
      width: 100%;
      padding: 15px 100px 15px 10px;
      font-size: 16px;
  }
 
-.form-control::placeholder{
+.login-form-control::placeholder{
     font-size: 16px;
 }
 
-.btn{
+.login-btn{
     width: 100%;
     padding: 15px 150px 15px 150px;
     background-color: #428bca;
@@ -91,4 +91,5 @@
     text-align: center;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 }
