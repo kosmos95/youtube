@@ -35,7 +35,7 @@ public class Comment {
     @Column(name = "author")
     private String author;
 
-    @Column(name = "author")
+    @Column(name = "write_time")
     private String writeTime;
 
     @Column(name = "likeAccount")
