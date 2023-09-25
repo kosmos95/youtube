@@ -29,4 +29,7 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Video> videos = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Group group;
 }
