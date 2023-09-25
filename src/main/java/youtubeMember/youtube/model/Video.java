@@ -22,15 +22,22 @@ public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "VIDEO_SEQ_GENERATOR")
+    @JoinColumn(name = "video_Id")
     private Long id;
 
-    private String videoId;
+    @Column(name = "youtube_video_id")
+    private String youtubeVideoId;
 
+    @Column(name = "video_title")
     private String videoTitle;
 
+    @Column(name = "video_upload")
     private LocalDateTime videoUpload;
 
     @OneToMany(mappedBy = "video", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="category_id")
+    private Category category;
 }
