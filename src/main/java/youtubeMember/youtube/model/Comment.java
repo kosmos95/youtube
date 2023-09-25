@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Table(schema = "youtube", name = "comment")
 @Entity
@@ -22,8 +23,9 @@ public class Comment {
             generator = "COMMENT_SEQ_GENERATOR")
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "video_id")
-    private String videoId;
+    private Video video;
 
     @Column(name = "authorChannel_id")
     private String channelId;
@@ -36,7 +38,7 @@ public class Comment {
     private String author;
 
     @Column(name = "write_time")
-    private String writeTime;
+    private LocalDateTime writeTime;
 
     @Column(name = "likeAccount")
     private Long likeAccount;
