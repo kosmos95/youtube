@@ -20,7 +20,6 @@ public class Office {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OFFICE_SEQ_GENERATOR")
-    @Column(name = "office_id")
     private Long id;
 
     private Integer area;
