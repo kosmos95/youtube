@@ -28,7 +28,7 @@ public class Office {
     private String office;
 
     @OneToMany(mappedBy = "office")
-    private List<Member> members = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public Office() {
     }

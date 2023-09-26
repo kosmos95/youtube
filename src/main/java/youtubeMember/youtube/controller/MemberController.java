@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import youtubeMember.youtube.dto.ChannelFormDto;
 import youtubeMember.youtube.dto.MemberFormDto;
 import youtubeMember.youtube.dto.OfficeFormDto;
-import youtubeMember.youtube.model.Member;
+import youtubeMember.youtube.model.User;
 import youtubeMember.youtube.model.Office;
-import youtubeMember.youtube.service.MemberService;
+import youtubeMember.youtube.service.UserService;
 import youtubeMember.youtube.service.OfficeService;
 
 import javax.validation.Valid;
@@ -25,7 +25,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberService memberService;
+    private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final OfficeService officeService;
 
@@ -38,8 +38,8 @@ public class MemberController {
 
     @PostMapping(value = "members/new")
     public String memberForm(MemberFormDto memberFormDto) {
-        Member member = Member.createMember(memberFormDto, passwordEncoder);
-        memberService.saveMember(member);
+        User user = User.createMember(memberFormDto, passwordEncoder);
+        userService.saveMember(user);
         log.info("회원가입 완료");
 
         return "main";
@@ -63,30 +63,30 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
-    @PostMapping(value = "/channel")
-    public String create(@Valid ChannelFormDto form, OfficeFormDto officeForm, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
-
-        List<Office> offices = officeService.findOffices();
-        
-        if (result.hasErrors()) {
-            //에러가 발생하면 도장 목록을 다시 읽어온다.
-            model.addAttribute("offices", offices);
-            return "members/createMemberForm";
-        }
-
-        officeForm.setId(officeId);
-        Office office = officeService.findOffice(officeForm.getId());
-
-        Member member = new Member(office, form.getName(), form.getChannelId(), form.getLeader());
-        member.setNickName(form.getName());
-        member.setChannelId(form.getChannelId());
-        member.setLeader(form.getLeader());
-        member.setOffice(office);
-
-
-        memberService.join(member);
-
-        return "redirect:/";
-    }
+//    @PostMapping(value = "/channel")
+//    public String create(@Valid ChannelFormDto form, OfficeFormDto officeForm, BindingResult result, @RequestParam("officeId") Long officeId, Model model) {
+//
+//        List<Office> offices = officeService.findOffices();
+//
+//        if (result.hasErrors()) {
+//            //에러가 발생하면 도장 목록을 다시 읽어온다.
+//            model.addAttribute("offices", offices);
+//            return "members/createMemberForm";
+//        }
+//
+//        officeForm.setId(officeId);
+//        Office office = officeService.findOffice(officeForm.getId());
+//
+//        User user = new User(office, form.getName(), form.getChannelId(), form.getLeader());
+//        user.setNickName(form.getName());
+//        user.setChannelId(form.getChannelId());
+//        user.setLeader(form.getLeader());
+//        user.setOffice(office);
+//
+//
+//        userService.join(user);
+//
+//        return "redirect:/";
+//    }
 
 }

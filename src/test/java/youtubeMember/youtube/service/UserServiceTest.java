@@ -10,7 +10,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import youtubeMember.youtube.dto.MemberFormDto;
-import youtubeMember.youtube.model.Member;
+import youtubeMember.youtube.model.User;
 import youtubeMember.youtube.repository.MemberRepository2;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,10 +18,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Transactional
-public class MemberServiceTest {
+public class UserServiceTest {
 
     @Autowired
-    MemberService memberService;
+    UserService userService;
     @Autowired
     MemberRepository2 memberRepository2;
 
@@ -35,14 +35,14 @@ public class MemberServiceTest {
     public void 회원가입() {
 
         //given
-        Member member = new Member();
-        member.setChannelId("UC0Mvu4HD8IuGiaVxrmph88g");
+        User user = new User();
+        user.setChannelId("UC0Mvu4HD8IuGiaVxrmph88g");
 
         //when
-        Long savedId = memberService.join(member);
+        Long savedId = userService.join(user);
 
         //then
-        assertEquals(member, memberRepository2.findOne(savedId));
+        assertEquals(user, memberRepository2.findOne(savedId));
 
     }
 
@@ -56,35 +56,35 @@ public class MemberServiceTest {
 //        Member member2 = new Member();
 //        member2.setChannelId("https://www.youtube.com/channel/UC0Mvu4HD8IuGiaVxrmph88g");
 
-        Member member1 = new Member();
-        Member member2 = new Member();
+        User user1 = new User();
+        User user2 = new User();
 
-        member1.setChannelId("UC0Mvu4HD8IuGiaVxrmph88g");
+        user1.setChannelId("UC0Mvu4HD8IuGiaVxrmph88g");
 
 
-        member2.setChannelId("UC0Mvu4HD8IuGiaVxrmph88g");
+        user2.setChannelId("UC0Mvu4HD8IuGiaVxrmph88g");
         //when
-        memberService.join(member1);
-        memberService.join(member2);
+        userService.join(user1);
+        userService.join(user2);
 
         //then
         fail("예외가 발생해야 한다.");
 
     }
 
-    public Member createMember() {
+    public User createMember() {
         MemberFormDto memberFormDto = new MemberFormDto();
         memberFormDto.setName("홍길동");
         memberFormDto.setPassword("1234");
-        return Member.createMember(memberFormDto, passwordEncoder);
+        return User.createMember(memberFormDto, passwordEncoder);
     }
 
     @Test
     @DisplayName("회원가입 테스트")
     public void saveMemberTest() {
-        Member member = createMember();
-        Member savedMember = memberService.saveMember(member);
+        User user = createMember();
+        User savedUser = userService.saveMember(user);
 
-        assertEquals(member.getNickName(), savedMember.getNickName());
+        assertEquals(user.getNickName(), savedUser.getNickName());
     }
 }
