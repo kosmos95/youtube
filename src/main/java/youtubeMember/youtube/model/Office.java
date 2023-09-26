@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(schema = "youtube", name = "OFFICE_TEST")
+@Table(schema = "youtube", name = "OFFICE")
 @Entity
 @SequenceGenerator(
         name = "OFFICE_SEQ_GENERATOR",
@@ -28,7 +28,7 @@ public class Office {
     private String office;
 
     @OneToMany(mappedBy = "office")
-    private List<User> users = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
 
     public Office() {
     }
