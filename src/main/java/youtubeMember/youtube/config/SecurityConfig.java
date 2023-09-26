@@ -23,17 +23,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.formLogin()
-                .loginPage("/members/login")
+                .loginPage("/users/login")
                 .defaultSuccessUrl("/main")
                 .usernameParameter("name")
-                .failureUrl("/members/login")
+                .failureUrl("/users/login")
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/users/logout"))
                 .logoutSuccessUrl("/");
 
         http.authorizeHttpRequests()
-                .mvcMatchers("/", "/members/**",
+                .mvcMatchers("/", "/users/**",
                         "/item/**", "/images/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated();

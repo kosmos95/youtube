@@ -15,12 +15,12 @@ public class HomeController {
     @GetMapping("/")
     public String home() {
         log.info("home controller");
-        return "members/login";
+        return "users/login";
     }
 
     @GetMapping("/main")
     public String mainPage() {
-        log.info("home controller");
+        log.info("main controller");
         return "main";
     }
 

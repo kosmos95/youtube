@@ -5,7 +5,6 @@ import youtubeMember.youtube.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
 
 @Repository
 public class MemberRepository2 {
@@ -21,9 +20,9 @@ public class MemberRepository2 {
         return em.find(User.class, id);
     }
 
-    public List<User> findByChannelId(String channelId) {
-        return em.createQuery("select u from User u where u.channelId = :channelId", User.class)
-                .setParameter("channelId", channelId)
-                .getResultList();
-    }
+//    public List<User> findByChannelId(String channelId) {
+//        return em.createQuery("select u from User u where u.channelId = :channelId", User.class)
+//                .setParameter("channelId", channelId)
+//                .getResultList();
+//    }
 }

@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter@Setter
-public class MemberFormDto {
+public class UserFormDto {
 
     private String name;
 

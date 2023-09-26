@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(schema = "youtube", name = "category")
+@Table(schema = "youtube", name = "CATEGORY")
 @Entity
 @SequenceGenerator(
         name = "CATEGORY_SEQ_GENERATOR",

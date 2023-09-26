@@ -3132,7 +3132,7 @@ Npm version bump due to package not being fully updated.
 ### Added
 - Added HTML5 schema support for srcset, source and picture. Patch contributed by mattheu.
 - Added new cache_suffix setting to enable cache busting by producing unique urls.
-- Added new paste_convert_word_fake_lists option to enable users to disable the fake lists convert logic.
+- Added new paste_convert_word_fake_lists option to enable user to disable the fake lists convert logic.
 
 ### Fixed
 - Fixed so advlist style changes adds undo levels for each change.

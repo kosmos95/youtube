@@ -5,51 +5,47 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import youtubeMember.youtube.dto.ChannelFormDto;
-import youtubeMember.youtube.dto.MemberFormDto;
-import youtubeMember.youtube.dto.OfficeFormDto;
+import youtubeMember.youtube.dto.UserFormDto;
 import youtubeMember.youtube.model.User;
 import youtubeMember.youtube.model.Office;
 import youtubeMember.youtube.service.UserService;
 import youtubeMember.youtube.service.OfficeService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-public class MemberController {
+public class UserController {
 
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final OfficeService officeService;
 
-    @GetMapping(value = "members/new")
+    @GetMapping(value = "users/new")
     public String memberForm(Model model) {
-        model.addAttribute("memberFormDto", new MemberFormDto());
+        model.addAttribute("userFormDto", new UserFormDto());
 
-        return "members/memberForm";
+        return "users/userForm";
     }
 
-    @PostMapping(value = "members/new")
-    public String memberForm(MemberFormDto memberFormDto) {
-        User user = User.createMember(memberFormDto, passwordEncoder);
+    @PostMapping(value = "users/new")
+    public String memberForm(UserFormDto userFormDto) {
+        User user = User.createMember(userFormDto, passwordEncoder);
         userService.saveMember(user);
         log.info("회원가입 완료");
 
         return "main";
     }
 
-    @GetMapping(value = "/members/login")
+    @GetMapping(value = "/users/login")
     public String login(Model model) {
-        model.addAttribute("memberFormDto", new MemberFormDto());
+        model.addAttribute("userFormDto", new UserFormDto());
 
-        return "members/login";
+        return "users/login";
     }
 
     @GetMapping(value = "/channel")
@@ -60,7 +56,7 @@ public class MemberController {
         model.addAttribute("offices", offices);
 
 
-        return "members/createMemberForm";
+        return "users/createMemberForm";
     }
 
 //    @PostMapping(value = "/channel")

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(schema = "youtube", name = "video")
+@Table(schema = "youtube", name = "VIDEO")
 @Entity
 @SequenceGenerator(
         name = "VIDEO_SEQ_GENERATOR",
@@ -22,7 +22,6 @@ public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "VIDEO_SEQ_GENERATOR")
-    @JoinColumn(name = "video_Id")
     private Long id;
 
     @Column(name = "youtube_video_id")

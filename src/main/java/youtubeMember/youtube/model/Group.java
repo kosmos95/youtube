@@ -8,11 +8,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(schema = "youtube", name = "group")
+@Table(schema = "youtube", name = "YOUTUBE_GROUP")
 @Entity
 @SequenceGenerator(
-        name = "GROUP_SEQ_GENERATOR",
-        sequenceName = "GROUP_SEQ",
+        name = "YOUTUBE_GROUP_SEQ_GENERATOR",
+        sequenceName = "YOUTUBE_GROUP_SEQ",
         initialValue = 1,
         allocationSize = 1
 )

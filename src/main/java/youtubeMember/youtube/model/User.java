@@ -4,18 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import youtubeMember.youtube.constant.Role;
-import youtubeMember.youtube.dto.MemberFormDto;
+import youtubeMember.youtube.dto.UserFormDto;
 
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
-
-@Table(schema = "youtube", name = "USER")
+@Table(schema = "youtube", name = "USERS")
 @Entity
 @SequenceGenerator(
-        name = "USER_SEQ_GENERATOR",
-        sequenceName = "USER_SEQ",
+        name = "USERS_SEQ_GENERATOR",
+        sequenceName = "USERS_SEQ",
         initialValue = 1,
         allocationSize = 1
 )
@@ -25,7 +23,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-                    generator = "USER_SEQ_GENERATOR")
+                    generator = "USERS_SEQ_GENERATOR")
     private Long id;
 
     private String password;
@@ -33,22 +31,16 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
-
     @Column(name = "nick_name")
     private String nickName;
-
-
-
-
 
     public User() {
     }
 
-    public static User createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
+    public static User createMember(UserFormDto userFormDto, PasswordEncoder passwordEncoder) {
         User user = new User();
-        user.setNickName(memberFormDto.getName());
-        String password = passwordEncoder.encode(memberFormDto.getPassword());
+        user.setNickName(userFormDto.getName());
+        String password = passwordEncoder.encode(userFormDto.getPassword());
         user.setPassword(password);
         user.setRole(Role.USER);
 

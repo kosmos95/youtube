@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import youtubeMember.youtube.dto.MemberFormDto;
+import youtubeMember.youtube.dto.UserFormDto;
 import youtubeMember.youtube.model.User;
 import youtubeMember.youtube.repository.MemberRepository2;
 
@@ -73,10 +73,10 @@ public class UserServiceTest {
     }
 
     public User createMember() {
-        MemberFormDto memberFormDto = new MemberFormDto();
-        memberFormDto.setName("홍길동");
-        memberFormDto.setPassword("1234");
-        return User.createMember(memberFormDto, passwordEncoder);
+        UserFormDto userFormDto = new UserFormDto();
+        userFormDto.setName("홍길동");
+        userFormDto.setPassword("1234");
+        return User.createMember(userFormDto, passwordEncoder);
     }
 
     @Test

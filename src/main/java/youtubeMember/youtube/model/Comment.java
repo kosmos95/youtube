@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Table(schema = "youtube", name = "comment")
+@Table(schema = "youtube", name = "YOUTUBE_COMMENT")
 @Entity
 @SequenceGenerator(
         name = "COMMENT_SEQ_GENERATOR",
@@ -40,10 +40,12 @@ public class Comment {
     @Column(name = "write_time")
     private LocalDateTime writeTime;
 
-    @Column(name = "likeAccount")
-    private Long likeAccount;
+    @Column(name = "like_count")
+    private Long likeCount;
 
-    @Column(name = "youtube_category")
-    private String youtubeCategory;
+    public void setVideo(Video video) {
+        this.video=video;
+        video.getComments().add(this);
+    }
 
 }

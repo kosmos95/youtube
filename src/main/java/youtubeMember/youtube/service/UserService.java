@@ -10,8 +10,6 @@ import youtubeMember.youtube.model.User;
 import youtubeMember.youtube.repository.MemberRepository2;
 import youtubeMember.youtube.repository.UserRepository;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -35,20 +33,20 @@ public class UserService implements UserDetailsService {
                 .build();
     }
 
-    public Long join(User user) {
-
-        user.setChannelId(getFileNameFromURL(user.getChannelId()));
-        validateDuplicateChannel(user);
-        memberRepository2.save(user);
-        return user.getId();
-    }
-
-    private void validateDuplicateChannel(User user) {
-        List<User> findUsers = memberRepository2.findByChannelId(user.getChannelId());
-        if (!findUsers.isEmpty()) {
-            throw new IllegalStateException("이미 존재하는 채널입니다");
-        }
-    }
+//    public Long join(User user) {
+//
+//        user.setChannelId(getFileNameFromURL(user.getChannelId()));
+//        validateDuplicateChannel(user);
+//        memberRepository2.save(user);
+//        return user.getId();
+//    }
+//
+//    private void validateDuplicateChannel(User user) {
+//        List<User> findUsers = memberRepository2.findByChannelId(user.getChannelId());
+//        if (!findUsers.isEmpty()) {
+//            throw new IllegalStateException("이미 존재하는 채널입니다");
+//        }
+//    }
 
     /**
      * 유튜브 채널 이름 추출
