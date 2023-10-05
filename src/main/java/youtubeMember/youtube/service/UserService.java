@@ -51,12 +51,12 @@ public class UserService implements UserDetailsService {
     /**
      * 유튜브 채널 이름 추출
      */
-    private String getFileNameFromURL(String channelId) {
-       return channelId.substring(channelId.lastIndexOf('/') + 1, channelId.length());
-    }
+//    private String getFileNameFromURL(String channelId) {
+//       return channelId.substring(channelId.lastIndexOf('/') + 1, channelId.length());
+//    }
 
 
-    public User saveMember(User user) {
+    public User saveUser(User user) {
         validateDuplicateMember(user);
         return userRepository.save(user);
     }

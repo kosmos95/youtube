@@ -83,7 +83,7 @@ public class UserServiceTest {
     @DisplayName("회원가입 테스트")
     public void saveMemberTest() {
         User user = createMember();
-        User savedUser = userService.saveMember(user);
+        User savedUser = userService.saveUser(user);
 
         assertEquals(user.getNickName(), savedUser.getNickName());
     }

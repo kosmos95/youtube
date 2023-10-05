@@ -24,6 +24,9 @@ public class Video {
             generator = "VIDEO_SEQ_GENERATOR")
     private Long id;
 
+    @Column(name = "channel_title")
+    private String channelTitle;
+
     @Column(name = "youtube_video_id")
     private String youtubeVideoId;
 

@@ -14,7 +14,7 @@
 <section class="login_form">
 <div id="login_form">
 
-    <form role="form" method="post" action="/members/login" autocomplete="off">
+    <form role="form" method="post" action="/users/login" autocomplete="off">
         <div class="login-form-group">
             <label th:for="id"></label>
             <input type="text" name="name" class="login-form-control" placeholder="ID">
@@ -30,7 +30,7 @@
         </div>
 
         <div class="login-form-group">
-        <button type="button" class="login-btn" onClick="location.href='/user/new'">회원가입</button>
+        <button type="button" class="login-btn" onClick="location.href='/users/new'">회원가입</button>
         </div>
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     </form>

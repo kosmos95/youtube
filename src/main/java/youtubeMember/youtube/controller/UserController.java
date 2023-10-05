@@ -26,16 +26,16 @@ public class UserController {
     private final OfficeService officeService;
 
     @GetMapping(value = "users/new")
-    public String memberForm(Model model) {
+    public String userForm(Model model) {
         model.addAttribute("userFormDto", new UserFormDto());
 
         return "users/userForm";
     }
 
     @PostMapping(value = "users/new")
-    public String memberForm(UserFormDto userFormDto) {
+    public String userForm(UserFormDto userFormDto) {
         User user = User.createMember(userFormDto, passwordEncoder);
-        userService.saveMember(user);
+        userService.saveUser(user);
         log.info("회원가입 완료");
 
         return "main";
@@ -44,7 +44,6 @@ public class UserController {
     @GetMapping(value = "/users/login")
     public String login(Model model) {
         model.addAttribute("userFormDto", new UserFormDto());
-
         return "users/login";
     }
 
