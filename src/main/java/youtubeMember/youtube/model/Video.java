@@ -30,8 +30,14 @@ public class Video {
     @Column(name = "video_title")
     private String videoTitle;
 
+    @Column(name = "video_url")
+    private String videoUrl;
+
     @Column(name = "video_upload")
     private LocalDateTime videoUpload;
+
+    @Column(name = "play_list")
+    private String playList;
 
     @OneToMany(mappedBy = "video", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
