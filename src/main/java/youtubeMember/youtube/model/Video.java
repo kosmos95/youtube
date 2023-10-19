@@ -42,6 +42,15 @@ public class Video {
     @Column(name = "play_list")
     private String playList;
 
+    @Column(name = "view_count")
+    private Long viewCount;
+
+    @Column(name = "like_count")
+    private Long likeCount;
+
+    @Column(name = "comment_count")
+    private Long commentCount;
+
     @OneToMany(mappedBy = "video", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 

@@ -27,8 +27,11 @@ public class Comment {
     @JoinColumn(name = "video_id")
     private Video video;
 
-    @Column(name = "Channel_id")
+    @Column(name = "channel_id")
     private String channelId;
+
+    @Column(name = "channel_url")
+    private String channelUrl;
 
     @Lob
     @Column(name = "comment_text")

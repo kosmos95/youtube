@@ -42,8 +42,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/users/login")
-    public String login(Model model) {
-        model.addAttribute("userFormDto", new UserFormDto());
+    public String login() {
         return "users/login";
     }
 
