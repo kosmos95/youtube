@@ -36,8 +36,8 @@ public class Video {
     @Column(name = "video_url")
     private String videoUrl;
 
-    @Column(name = "video_upload")
-    private LocalDateTime videoUpload;
+    @Column(name = "video_upload_date")
+    private LocalDateTime videoUploadDate;
 
     @Column(name = "play_list")
     private String playList;
